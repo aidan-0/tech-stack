@@ -2,32 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+#boxSection {
+	position: relative;
+	display: flex;
+	background: white;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+#boxContainer {
+	position: relative;
+	background: #0b345a;
+	background: radial-gradient(circle at top center, #144472 0%, #022241 100%);
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+#boxTitle1 {
+	opacity: 0;
+	/* font-size: 6rem; */
+	font-weight: 600;
+	letter-spacing: 0.05em;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+#boxSubtitle1 {
+	font-size: 25px;
+	text-align: right;
+	width: 40%;
+	color: "#ffffff";
+	align-self: flex-end;
+	opacity: 0;
+	letter-spacing: 0.05em;
+}
+
+.marquee {
+	--gap: 6rem;
+	display: flex;
+	overflow: hidden;
+	user-select: none;
+	gap: var(--gap);
+	position: relative;
+	mask-image: linear-gradient(to right, transparent 23%, black 26%, black 74%, transparent 77%);
+	-webkit-mask-image: linear-gradient(to right, transparent 23%, black 26%, black 74%, transparent 77%);
+
+}
+
+.marquee-content {
+	flex-shrink: 0;
+	display: flex;
+	justify-content: space-around;
+	min-width: 100%;
+	gap: var(--gap);
+	animation: scroll 75s linear infinite;
+}
+
+
+.marquee-reverse {
+	animation-direction: reverse;
+}
+
+@keyframes scroll {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(calc(-100% - var(--gap)));
+	}
+}
+
+.tech-logo {
+    height: 55px;
+    width: 55px;
+	/* filter: grayscale(1); */
 }
